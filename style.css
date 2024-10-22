@@ -4,24 +4,36 @@
   }
   
   html {
-      font-size: 200%;
+      font-size: 160%;
       font-weight: 300;
       line-height: 1.3;
     }
+*{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-books{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(5,minmax(300px,50%));
+    grid-template-rows: repeat(4,minmax(300px,50%));
+    gap: 10px;
+}    
 
 .book-card{
     text-align: center;
     justify-content: center;
     border: 2px black solid;
-    height: 10rem;
-    width: 10rem;
-    margin: auto;
+    height: 7rem;
+    width: 7rem;
+    /* margin: auto; */
 
-   
 }
 
 .top{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     background-color: turquoise;
 }
