@@ -1,76 +1,67 @@
 const myLibrary = [];
 
-function Book(title, author, pages) {
+function Book(title, author, pages,read) {
   // the constructor...
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read= read;
 
 }
 
-// const btn= document.querySelector('button');
+const createABook = document.getElementById("createABook");
+const newBookDialog = document.getElementById("newBookDialog");
+const outputBox = document.querySelector(".output");
+const confirmBtn = newBookDialog.querySelector("#confirmBtn");
+newBookDialog.returnValue = "initialValue"
 
-// let count=0;
-
-// btn.onclick= function (){
-//   ++count;
+function openCheck(newBookDialog) {
+  if (newBookDialog.open) {
+    outputBox.innerText = "Dialog open";
+  } else {
+    outputBox.innerText = "Dialog closed";
+  }
+};
+function printBook(myLibrary){
+  bookTitle.textContent=`Title: ${myLibrary[0].title}`;
+  bookAuthor.textContent= `Author: ${myLibrary[0].author}`;
+  bookPage.textContent= `Pages: ${myLibrary[0].pages}`;
+  }
   
-// }
 
-// btn.addEventListener('click', () => {
+createABook.addEventListener("click", () => {
+  newBookDialog.showModal();
+  openCheck(newBookDialog);
+})
 
-// function addBookToLibrary() {
-//   // do stuff here
+newBookDialog.addEventListener("close", (e) => {
 
+  // const bookTop= document.createElement('div');
+  // function addBookToLibrary(){
+    openCheck(newBookDialog)
+    printBook(myLibrary)
+  } 
 
+)
 
-// const book1= new Book(prompt('Title'),prompt('Author'), prompt('Pages'));
-
-
-// myLibrary.push(book1);
-
-// const containerBooks=document.querySelector('.container-books');
-
-// const bookCard= document.createElement('div');
-// bookCard.classList.add("book-card");
-// containerBooks.appendChild(bookCard);
-
-// const bookTop= document.createElement('div');
-// const bookTitle= document.createElement('div');
-// const bookAuthor= document.createElement('div');
-// const bookPage= document.createElement('div');
-
-// bookTop.classList.add("top");
-// bookCard.appendChild(bookTop);
-
-// bookTitle.classList.add("name");
-// bookCard.appendChild(bookTitle);
-
-// bookAuthor.classList.add("author");
-// bookCard.appendChild(bookAuthor);
-
-// bookPage.classList.add("pages");
-// bookCard.appendChild(bookPage);
-
-// // Print results
-
-
-// bookTitle.textContent=`Title: ${myLibrary[0].title}`;
-// bookAuthor.textContent= `Author: ${myLibrary[0].author}`;
-// bookPage.textContent= `Pages: ${myLibrary[0].pages}`;
-
-
-
-// bookTop.textContent=`Book ${count}`;
-
-// }
-
-
-addBookToLibrary();
+confirmBtn.addEventListener("click", (event) => {
+  event.preventDefault(); 
+  const book1= new Book(title.value,author.value, pages.value)
+  myLibrary.push(book1);
+  newBookDialog.close();
+  ;
+  // printBooks();
 });
 
+const bookTitle= document.querySelector(".bookTitle");
+const bookAuthor= document.querySelector(".bookAuthor");
+const bookPage= document.querySelector(".bookPage");
 
-console.log(myLibrary);
+
+
+// bookTitle.textContent='a';
+// bookTitle.innerText='b';
+
 
 
 

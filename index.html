@@ -7,14 +7,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container-button">
-        <button> New Book!</button>
-    </div>
-    <div class="container-books"></div>
 
-    <dialog id="new-book">
-        <form>
-
+    <dialog id="newBookDialog">
+        <form method="dialog">
             <p class="book-form">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" pattern="[a-zA-Z]*"/>
@@ -38,7 +33,18 @@
     <button id="createABook">Create a Book!</button>
     </p>
 
-  <output></output>
+  <div class="output">
+    <div class="bookTitle">
+
+    </div>
+    <div class="bookAuthor">
+
+    </div>
+
+    <div class="bookPage">
+
+    </div>
+  </div>
 
 </body>
 </html>
