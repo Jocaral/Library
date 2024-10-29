@@ -3,9 +3,8 @@ const createABook = document.getElementById("createABook");
 const newBookDialog = document.getElementById("newBookDialog");
 const outputBox = document.querySelector(".output");
 const confirmBtn = newBookDialog.querySelector("#confirmBtn");
-const cancelBtn = document.getElementById("cancelBtn");
+const closeBtn = document.getElementById("closeBtn");
 const form = document.querySelector("form");
-newBookDialog.returnValue = "initialValue"
 
 // open dialog to Add a book
 
@@ -15,7 +14,7 @@ createABook.addEventListener("click", () => {
 
 // close dialog When adding a book
 
-cancelBtn.addEventListener("click", (e) => {
+closeBtn.addEventListener("click", (e) => {
   newBookDialog.close();
 });
 
@@ -77,49 +76,4 @@ function remove(index) {
       myLibrary.splice(index, 1);
       displayBooks();
     }
-
-
-// function openCheck(newBookDialog) {
-//   if (newBookDialog.open) {
-//     outputBox.innerText = "Dialog open";
-//   } else {
-//     outputBox.innerText = "Dialog closed";
-//   }
-// };
-// function printBook(myLibrary){
-//   bookTitle.textContent=`Title: ${myLibrary[0].title}`;
-//   bookAuthor.textContent= `Author: ${myLibrary[0].author}`;
-//   bookPage.textContent= `Pages: ${myLibrary[0].pages}`;
-//   }
-  
-
-
-
-// newBookDialog.addEventListener("close", (e) => {
-//     openCheck(newBookDialog)
-//     printBook(myLibrary)
-//   } 
-
-// )
-
-// confirmBtn.addEventListener("click", (event) => {
-//   event.preventDefault(); 
-//   const book1= new Book(title.value,author.value, pages.value)
-//   myLibrary.push(book1);
-//   newBookDialog.close();
-//   ;
-//   // printBooks();
-// });
-
-// const bookTitle= document.querySelector(".bookTitle");
-// const bookAuthor= document.querySelector(".bookAuthor");
-// const bookPage= document.querySelector(".bookPage");
-
-
-
-// bookTitle.textContent='a';
-// bookTitle.innerText='b';
-
-
-
 
