@@ -50,24 +50,17 @@ function addBookToLibrary(event) {
 }
 
 function displayBooks() {
-  outputBox.innerHTML = "";
+  outputBox.textContent = "";
   myLibrary.forEach((newbook, index) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
 
-    bookCard.innerHTML = `
-        <div class="heading">
-        <h3>Author : ${newbook.author}</h3>
-        <h3>Title : ${newbook.title}</h3>
-        </div>
-
-        <div class="content">
-        <p>Pages : ${newbook.pages}</p>
+    bookCard.textContent = `Author : ${newbook.author}
+        Title : ${newbook.title}
+        Pages : ${newbook.pages}`
        
-</button>
-        </div>
         
-        `;
+        ;
         outputBox.appendChild(bookCard);
       });
     }
