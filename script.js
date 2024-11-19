@@ -64,20 +64,34 @@ function displayBooks() {
     const bookPage = document.createElement("div");
     bookPage.classList.add("book-page");
 
+    const deleteBook = document.createElement("button");
+    deleteBook.classList.add("delete-book");
+    deleteBook.onclick = removeBook;
+
     bookTitle.textContent = `Author : ${newbook.author}`;
     bookAuthor.textContent = `Title : ${newbook.title}`;
     bookPage.textContent = `Pages : ${newbook.pages}`;
+    deleteBook.textContent = 'Delete';
        
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPage);
+    bookCard.appendChild(deleteBook);
     
     outputBox.appendChild(bookCard);
+
+
       });
     }
 
-function remove(index) {
+    function removeBook(index) {
       myLibrary.splice(index, 1);
       displayBooks();
     }
+
+    // removeBook.addEventListener("click", () => {
+    //   console.log('hola');
+    // })
+
+
 
