@@ -23,7 +23,7 @@ form.addEventListener("submit", addBookToLibrary);
 
 const myLibrary = [];
 
-function Book(title, author, pages,read) {
+function Book(title, author, pages, read) {
   // the constructor...
   this.title = title;
   this.author = author;
@@ -36,11 +36,11 @@ function addBookToLibrary(event) {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
-  // let statusRead = document.getElementById("Read").checked;
+  let statusRead = document.getElementById("read").checked;
 
   // let status = statusRead ? "Read" : "Not-Read";
 
-  const newBook = new Book(title, author, pages);
+  const newBook = new Book(title, author, pages, statusRead );
 
   myLibrary.push(newBook);
   newBookDialog.close();
@@ -77,9 +77,25 @@ function displayBooks() {
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPage);
     bookCard.appendChild(deleteBook);
+
+    const readBtn = document.createElement('button');
+    readBtn.classList.add('readBtn');
+    bookCard.appendChild(readBtn);
+    if(newbook.read===false) {
+        readBtn.textContent = 'Not Read';
+        readBtn.style.backgroundColor = '#e04f63';
+    }else {
+        readBtn.textContent = 'Read';
+        readBtn.style.backgroundColor = '#63da63'
+    }
     
     outputBox.appendChild(bookCard);
 
+    //add toggle ability to each book 'read' button on click
+    readBtn.addEventListener('click', () => { 
+      newbook.read = !newbook.read; 
+      displayBooks();
+  }); 
 
       });
     }
@@ -89,9 +105,9 @@ function displayBooks() {
       displayBooks();
     }
 
-    // removeBook.addEventListener("click", () => {
-    //   console.log('hola');
-    // })
+    
+    
+  
 
 
 
